@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - AtomicDoc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0A192F] text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-[#0A192F] fixed w-full top-0 z-50 border-b border-[#1A293F]">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="text-white text-2xl font-bold">AtomicDoc</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <a href="/upload" class="text-white hover:text-[#64C8FA] px-3 py-2">Upload Guide</a>
+                <a href="/feedback" class="text-[#64C8FA] px-3 py-2">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-10 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-2xl font-bold mb-6">Send Feedback</h1>
+            
+            <form id="feedback-form" class="bg-[#1A293F] rounded-lg p-6">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Category</label>
+                    <select name="category" class="w-full bg-[#0A192F] border border-[#2A394F] rounded-lg px-4 py-2 focus:border-[#64C8FA] focus:ring-[#64C8FA]">
+                        <option value="improvement">Idea for Improvement</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="request">Resource Request</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Your Feedback</label>
+                    <div class="relative">
+                        <textarea name="message" rows="8" class="w-full bg-[#0A192F] border border-[#2A394F] rounded-lg px-4 py-3 focus:border-[#64C8FA] focus:ring-[#64C8FA] resize-none" placeholder="Type your feedback here..."></textarea>
+                        <div class="absolute bottom-3 right-3 flex items-center space-x-2">
+                            <button type="button" class="text-gray-400 hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-[#64C8FA] hover:bg-[#4EC6F5] text-white font-medium py-3 px-4 rounded-lg transition-colors">
+                    Submit Feedback
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const feedback = {
+                category: formData.get('category'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Create download link
+            const blob = new Blob([JSON.stringify(feedback, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = `mailto:raiderreckless9@gmail.com?subject=Feedback%20Submission&body=${encodeURIComponent(feedback.message)}`;
+            a.click();
+            
+            // Reset form
+            this.reset();
+            alert('Thank you for your feedback! A mail client will open to send your message.');
+        });
+    </script>
+</body>
+</html>

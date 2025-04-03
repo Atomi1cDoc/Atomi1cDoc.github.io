@@ -1,0 +1,50 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* File Card Hover Effect */
+.bg-\[\#1A293F\]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Transition Effects */
+a, button {
+    transition: all 0.2s ease;
+}
+
+/* Responsive Padding */
+@media (max-width: 640px) {
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* File Name Truncation */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+/* Active Tab Indicator */
+.bg-\[\#64C8FA\] {
+    background-color: #64C8FA !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1A293F;
+}
+::-webkit-scrollbar-thumb {
+    background: #64C8FA;
+    border-radius: 4px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtomicDoc - Resource Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0A192F] text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-[#0A192F] fixed w-full top-0 z-50 border-b border-[#1A293F]">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="text-white text-2xl font-bold">AtomicDoc</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <a href="/upload" class="text-white hover:text-[#64C8FA] px-3 py-2">Upload Guide</a>
+                <a href="/feedback" class="text-white hover:text-[#64C8FA] px-3 py-2">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Document Resources</h1>
+            
+            <!-- Category Tabs -->
+            <div class="flex mb-6 space-x-2">
+                <button id="ibdp-tab" class="bg-[#64C8FA] text-white px-4 py-2 rounded-lg">IBDP</button>
+                <button id="igcse-tab" class="bg-[#1A293F] text-white px-4 py-2 rounded-lg">IGCSE</button>
+            </div>
+            
+            <!-- File List -->
+            <div id="file-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Files will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

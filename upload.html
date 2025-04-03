@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Guide - AtomicDoc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0A192F] text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-[#0A192F] fixed w-full top-0 z-50 border-b border-[#1A293F]">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="text-white text-2xl font-bold">AtomicDoc</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <a href="/upload" class="text-[#64C8FA] px-3 py-2">Upload Guide</a>
+                <a href="/feedback" class="text-white hover:text-[#64C8FA] px-3 py-2">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-10 px-4">
+        <div class="max-w-3xl mx-auto bg-[#1A293F] rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-6">How to Upload Resources</h1>
+            
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold mb-2 text-[#64C8FA]">1. Access the GitHub Repository</h2>
+                    <p class="mb-4">Visit the repository: <a href="https://github.com/Atomi1cDoc/Atomi1cDoc.github.io" class="text-[#64C8FA] hover:underline" target="_blank">Atomi1cDoc/Atomi1cDoc.github.io</a></p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2 text-[#64C8FA]">2. Upload Files</h2>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Navigate to the appropriate folder (resources/ibdp or resources/igcse)</li>
+                        <li>Click "Add file" → "Upload files"</li>
+                        <li>Drag and drop your files or click "choose your files"</li>
+                        <li>Commit changes directly to the main branch</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2 text-[#64C8FA]">3. Update resources.json</h2>
+                    <p class="mb-2">Edit resources.json to include metadata for new files:</p>
+                    <pre class="bg-[#0A192F] p-4 rounded overflow-x-auto text-sm">
+{
+  "ibdp": [
+    {
+      "name": "New_File.pdf",
+      "size": "1.5MB",
+      "date": "2023-10-15"
+    }
+  ]
+}</pre>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2 text-[#64C8FA]">File Requirements</h2>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Max file size: 20MB</li>
+                        <li>Allowed formats: PDF, DOCX, PPTX, ZIP</li>
+                        <li>File names should use underscores instead of spaces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
