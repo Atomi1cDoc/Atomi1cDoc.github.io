@@ -48,3 +48,46 @@ a, button {
     background: #64C8FA;
     border-radius: 4px;
 }
+
+/* Feedback Form Improvements */
+.card {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .chat .options {
+    justify-content: center;
+}
+
+.card .chat .options .btn-submit {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    background-image: linear-gradient(to top, #ff4141, #9147ff, #3b82f6);
+    border-radius: 8px;
+    box-shadow: 
+        inset 0 4px 2px -4px rgba(255, 255, 255, 0.5),
+        0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    opacity: 0.9;
+    transition: all 0.15s ease;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+.card .chat .options .btns-add {
+    display: none; /* Hide the small submit button */
+}
+
+select option {
+    color: #333;
+    background: white;
+}
+
+select option:hover {
+    background: #f0f0f0;
+}
