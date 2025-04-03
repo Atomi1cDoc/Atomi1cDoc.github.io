@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - AtomicDoc</title>
+    <title>IGCSE Resources - Resource Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,7 +22,7 @@
                     </button>
                     <div class="absolute hidden group-hover:block bg-[#1A293F] mt-2 py-2 w-48 rounded shadow-lg">
                         <a href="/" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IBDP Resources</a>
-                        <a href="/igcse.html" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IGCSE Resources</a>
+                        <a href="/igcse.html" class="text-[#64C8FA] px-4 py-2 hover:bg-[#64C8FA] hover:text-white">IGCSE Resources</a>
                     </div>
                 </div>
                 <a href="/upload" class="text-white hover:text-[#64C8FA] px-3 py-2">Upload Guide</a>
@@ -31,13 +31,16 @@
         </div>
     </nav>
 
-    <div class="text-center p-6 pt-32">
-        <h1 class="text-6xl font-bold mb-4">404</h1>
-        <p class="text-2xl mb-6">Page Not Found</p>
-        <p class="mb-8">The page you're looking for doesn't exist or has been moved.</p>
-        <a href="/" class="bg-[#64C8FA] hover:bg-[#4EC6F5] text-white font-medium py-2 px-6 rounded-lg inline-block transition-colors">
-            Return Home
-        </a>
-    </div>
+    <main class="pt-20 pb-10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">IGCSE Resources</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Resources will be loaded dynamically from resources.json -->
+                <div id="igcse-resources" class="space-y-4"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>

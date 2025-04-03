@@ -13,7 +13,19 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="/" class="text-white text-2xl font-bold">AtomicDoc</a>
             <div class="hidden md:flex space-x-6">
-                <a href="/" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <a href="/home.html" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <div class="relative group">
+                    <button class="text-white hover:text-[#64C8FA] px-3 py-2 flex items-center">
+                        Resources
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-[#1A293F] mt-2 py-2 w-48 rounded shadow-lg">
+                        <a href="/" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IBDP Resources</a>
+                        <a href="/igcse.html" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IGCSE Resources</a>
+                    </div>
+                </div>
                 <a href="/upload" class="text-white hover:text-[#64C8FA] px-3 py-2">Upload Guide</a>
                 <a href="/feedback" class="text-[#64C8FA] px-3 py-2">Feedback</a>
             </div>
@@ -41,13 +53,20 @@
                     <div class="relative">
                         <textarea name="message" rows="8" class="w-full bg-[#0A192F] border border-[#2A394F] rounded-lg px-4 py-3 focus:border-[#64C8FA] focus:ring-[#64C8FA] resize-none" placeholder="Type your feedback here..."></textarea>
                         <div class="absolute bottom-3 right-3 flex items-center space-x-2">
-                            <button type="button" class="text-gray-400 hover:text-white">
+                            <label class="cursor-pointer text-gray-400 hover:text-white">
+                                <input type="file" name="attachment" class="hidden" multiple>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </label>
+                            <button type="submit" class="bg-[#64C8FA] hover:bg-[#4EC6F5] text-white p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </button>
                         </div>
                     </div>
+                    <div id="file-preview" class="mt-2 flex flex-wrap gap-2 hidden"></div>
                 </div>
 
                 <button type="submit" class="w-full bg-[#64C8FA] hover:bg-[#4EC6F5] text-white font-medium py-3 px-4 rounded-lg transition-colors">
@@ -58,25 +77,63 @@
     </main>
 
     <script>
-        document.getElementById('feedback-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const feedback = {
-                category: formData.get('category'),
-                message: formData.get('message'),
-                timestamp: new Date().toISOString()
-            };
-
-            // Create download link
-            const blob = new Blob([JSON.stringify(feedback, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = `mailto:raiderreckless9@gmail.com?subject=Feedback%20Submission&body=${encodeURIComponent(feedback.message)}`;
-            a.click();
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('feedback-form');
+            const fileInput = form.querySelector('input[type="file"]');
+            const filePreview = document.getElementById('file-preview');
             
-            // Reset form
-            this.reset();
-            alert('Thank you for your feedback! A mail client will open to send your message.');
+            fileInput.addEventListener('change', (e) => {
+                filePreview.innerHTML = '';
+                if (fileInput.files.length > 0) {
+                    filePreview.classList.remove('hidden');
+                    Array.from(fileInput.files).forEach(file => {
+                        const preview = document.createElement('div');
+                        preview.className = 'bg-[#1A293F] px-3 py-2 rounded-lg flex items-center';
+                        preview.innerHTML = `
+                            <span class="truncate max-w-xs">${file.name}</span>
+                            <span class="text-xs text-gray-400 ml-2">(${(file.size/1024).toFixed(1)}KB)</span>
+                            <button type="button" class="ml-2 text-red-400 hover:text-red-300" data-file="${file.name}">
+                                &times;
+                            </button>
+                        `;
+                        filePreview.appendChild(preview);
+                    });
+                } else {
+                    filePreview.classList.add('hidden');
+                }
+            });
+
+            filePreview.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const fileName = e.target.getAttribute('data-file');
+                    const dt = new DataTransfer();
+                    Array.from(fileInput.files)
+                        .filter(file => file.name !== fileName)
+                        .forEach(file => dt.items.add(file));
+                    fileInput.files = dt.files;
+                    e.target.parentNode.remove();
+                    if (fileInput.files.length === 0) {
+                        filePreview.classList.add('hidden');
+                    }
+                }
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                try {
+                    // In a real implementation, you would send this to a server
+                    // For demo purposes, we'll show a success message
+                    alert('Feedback submitted successfully! Files: ' + 
+                          Array.from(formData.getAll('attachment')).map(f => f.name).join(', '));
+                    form.reset();
+                    filePreview.classList.add('hidden');
+                    filePreview.innerHTML = '';
+                } catch (error) {
+                    alert('Error submitting feedback: ' + error.message);
+                }
+            });
         });
     </script>
 </body>

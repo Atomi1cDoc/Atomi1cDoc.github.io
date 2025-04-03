@@ -3,19 +3,46 @@
     {
       "name": "Math_Guide.pdf",
       "size": "2.1MB",
-      "date": "2023-09-01"
+      "date": "2023-09-01",
+      "description": "Comprehensive guide to IBDP Mathematics",
+      "link": "/resources/ibdp/Math_Guide.pdf"
     },
     {
       "name": "Physics_Notes.zip",
       "size": "4.5MB",
-      "date": "2023-08-15"
+      "date": "2023-08-15",
+      "description": "Detailed physics notes and practice problems",
+      "link": "/resources/ibdp/Physics_Notes.zip"
     }
   ],
   "igcse": [
     {
       "name": "Chemistry_Exam.pdf",
       "size": "1.2MB",
-      "date": "2023-07-20"
+      "date": "2023-07-20",
+      "description": "Past exam papers with mark schemes",
+      "link": "/resources/igcse/Chemistry_Exam.pdf"
+    },
+    {
+      "name": "Biology_Revision.pdf",
+      "size": "3.4MB",
+      "date": "2023-09-10",
+      "description": "Complete revision notes for IGCSE Biology",
+      "link": "/resources/igcse/Biology_Revision.pdf"
+    },
+    {
+      "name": "Math_Practice.zip",
+      "size": "2.8MB",
+      "date": "2023-08-25",
+      "description": "Practice worksheets with solutions",
+      "link": "/resources/igcse/Math_Practice.zip"
+    },
+    {
+      "name": "English_Literature.pdf",
+      "size": "1.7MB",
+      "date": "2023-09-05",
+      "description": "Analysis of key texts and themes",
+      "link": "/resources/igcse/English_Literature.pdf"
     }
   ]
 }

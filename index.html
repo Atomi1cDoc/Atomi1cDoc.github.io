@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtomicDoc - Resource Hub</title>
+    <title>Resource Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,9 +11,21 @@
     <!-- Navigation -->
     <nav class="bg-[#0A192F] fixed w-full top-0 z-50 border-b border-[#1A293F]">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="/" class="text-white text-2xl font-bold">AtomicDoc</a>
+            <a href="/" class="text-white text-2xl font-bold">Resource Hub</a>
             <div class="hidden md:flex space-x-6">
-                <a href="/" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <a href="/home.html" class="text-white hover:text-[#64C8FA] px-3 py-2">Home</a>
+                <div class="relative group">
+                    <button class="text-white hover:text-[#64C8FA] px-3 py-2 flex items-center">
+                        Resources
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-[#1A293F] mt-2 py-2 w-48 rounded shadow-lg">
+                        <a href="/" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IBDP Resources</a>
+                        <a href="/igcse.html" class="block px-4 py-2 text-white hover:bg-[#64C8FA]">IGCSE Resources</a>
+                    </div>
+                </div>
                 <a href="/upload" class="text-white hover:text-[#64C8FA] px-3 py-2">Upload Guide</a>
                 <a href="/feedback" class="text-white hover:text-[#64C8FA] px-3 py-2">Feedback</a>
             </div>
