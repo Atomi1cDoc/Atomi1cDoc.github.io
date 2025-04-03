@@ -34,13 +34,24 @@
 
     <!-- Main Content -->
     <main class="pt-20 pb-10 px-4">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-2xl font-bold mb-6">Send Feedback</h1>
+        <div class="max-w-md mx-auto">
+            <h1 class="text-2xl font-bold mb-6 text-center">Send Feedback</h1>
             
-            <form id="feedback-form" class="bg-[#1A293F] rounded-lg p-6">
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2">Category</label>
-                    <select name="category" class="w-full bg-[#0A192F] border border-[#2A394F] rounded-lg px-4 py-2 focus:border-[#64C8FA] focus:ring-[#64C8FA]">
+            <form id="feedback-form" class="bg-[#1A293F] rounded-xl p-8 shadow-lg">
+                <!-- Floating Label Input -->
+                <div class="relative mb-6">
+                    <input type="text" id="name" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border border-[#2A394F] appearance-none focus:outline-none focus:ring-0 focus:border-[#64C8FA] peer" placeholder=" " />
+                    <label for="name" class="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#1A293F] px-2 peer-focus:px-2 peer-focus:text-[#64C8FA] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Your Name</label>
+                </div>
+
+                <!-- Floating Label Email -->
+                <div class="relative mb-6">
+                    <input type="email" id="email" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border border-[#2A394F] appearance-none focus:outline-none focus:ring-0 focus:border-[#64C8FA] peer" placeholder=" " />
+                    <label for="email" class="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#1A293F] px-2 peer-focus:px-2 peer-focus:text-[#64C8FA] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Email Address</label>
+                </div>
+                <!-- Floating Label Select -->
+                <div class="relative mb-6">
+                    <select name="category" id="category" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border border-[#2A394F] appearance-none focus:outline-none focus:ring-0 focus:border-[#64C8FA] peer">
                         <option value="improvement">Idea for Improvement</option>
                         <option value="bug">Bug Report</option>
                         <option value="request">Resource Request</option>
@@ -48,10 +59,10 @@
                     </select>
                 </div>
 
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2">Your Feedback</label>
-                    <div class="relative">
-                        <textarea name="message" rows="8" class="w-full bg-[#0A192F] border border-[#2A394F] rounded-lg px-4 py-3 focus:border-[#64C8FA] focus:ring-[#64C8FA] resize-none" placeholder="Type your feedback here..."></textarea>
+                <!-- Floating Label Textarea -->
+                <div class="relative mb-6">
+                    <textarea name="message" id="message" rows="4" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border border-[#2A394F] appearance-none focus:outline-none focus:ring-0 focus:border-[#64C8FA] peer" placeholder=" "></textarea>
+                    <label for="message" class="absolute text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#1A293F] px-2 peer-focus:px-2 peer-focus:text-[#64C8FA] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Your Feedback</label>
                         <div class="absolute bottom-3 right-3 flex items-center space-x-2">
                             <label class="cursor-pointer text-gray-400 hover:text-white">
                                 <input type="file" name="attachment" class="hidden" multiple>
@@ -69,8 +80,9 @@
                     <div id="file-preview" class="mt-2 flex flex-wrap gap-2 hidden"></div>
                 </div>
 
-                <button type="submit" class="w-full bg-[#64C8FA] hover:bg-[#4EC6F5] text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                    Submit Feedback
+                <!-- Animated Submit Button -->
+                <button type="submit" class="relative w-full px-5 py-3 overflow-hidden font-medium rounded-lg group bg-gradient-to-br from-[#64C8FA] to-[#4EC6F5] group-hover:from-[#64C8FA] group-hover:to-[#4EC6F5] text-white focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <span class="relative">Submit Feedback</span>
                 </button>
             </form>
         </div>
